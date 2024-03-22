@@ -9,8 +9,25 @@ const thumbnailsContainer = document.querySelector('.thumbnails-container');
 
 //Utilizziamo for each al posoto di for
 images.forEach((image, index) => {
-    
-}
+    //genero nel html 
+    const newImage = `<div class="image ${index === activeItem ? 'active' : ''}">
+    <img src="${image.image}">
+    <div class="image-info">
+        <h3>${image.title}</h3>
+        <p>${image.text}</p>
+    </div>
+</div>`;
+    // Aggiungi l'HTML ai rispettivi contenitori
+    imagesContainer.innerHTML += newImage;
+
+    const newThumbnail = `
+    <div class="thumbnail ${index === activeItem ? 'active' : ''}">
+        <img src="${image.image}">
+    </div>
+    `;
+
+    thumbnailsContainer.innerHTML += newThumbnail;
+});
     
 
 
